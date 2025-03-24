@@ -30,6 +30,6 @@ urlpatterns = [
 urlpatterns = [
     path('', views.home),
     path('about/', views.about),
-    path('item/<int:i>', views.getItem),
+    path('item/<int:itemId>', views.getItem),
     path('items/', views.getItems),
 ]

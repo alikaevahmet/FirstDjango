@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-
+from django.http import HttpResponseNotFound
 # Create your views here.
 
 def weather(request):
@@ -21,20 +21,16 @@ def home(request):
 
 
 
-name1 = 'Иван'
-name2 = 'Петрович'
-name3 = 'Иванов'
-phone = '8-923-600-01-02'
-email ='vasya@mail.ru'
+def about(request):
+    author = {
+        'name': 'Иван',
+        'middleName': 'Петрович',
+        'lastName': 'Иванов',
+        'phone': '8-923-600-01-02',
+        'email': 'vasya@mail.ru',
+    }
 
-def about(req):
-    res = f'''Имя: {name1}</br>
-        Отчество: {name2}</br>
-        Фамилия: {name3}</br>
-        телефон: {phone}</br>
-        email: {email}
-    '''
-    return HttpResponse(res)
+    return render(request, 'about.html', {'author': author})
     
 
 ITEMS = [
@@ -47,16 +43,25 @@ ITEMS = [
 
 
 
-def getItem(req, i):    
-    for j in ITEMS:
-        if j['id'] == i:
-            res = f'{j['name']}: {j['quantity']}'
-            break
-        else:
-            res = f'Товар с id={i} не найден'
-    back = '<p><a href="/items">назад к списку товаров</a></p>'
-    res += back
-    return HttpResponse(res)
+def getItem(request, itemId: int):    
+    # for j in ITEMS:
+    #     if j['id'] == i:
+    #         res = f'{j['name']}: {j['quantity']}'
+    #         break
+    #     else:
+    #         res = f'Товар с id={i} не найден'
+    # back = '<p><a href="/items">назад к списку товаров</a></p>'
+    # res += back
+    # return HttpResponse(request)
+
+    item = next((item for item in ITEMS if item['id'] == itemId), None)
+    if item is not None:
+        context = {
+            'item': item,
+        }
+        return render(request, 'itemPage.html', context)
+
+    return HttpResponseNotFound(f'Item with id={itemId} not found')
 
 
 def getItems(request):
