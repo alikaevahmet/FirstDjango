@@ -28,8 +28,8 @@ urlpatterns = [
 ]
 """
 urlpatterns = [
-    path('', views.task1),
-    path('about/', views.task2),
-    path('item/<int:i>', views.item),
-    path('items/', views.items),
+    path('', views.home),
+    path('about/', views.about),
+    path('item/<int:i>', views.getItem),
+    path('items/', views.getItems),
 ]

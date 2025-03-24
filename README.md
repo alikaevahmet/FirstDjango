@@ -12,3 +12,21 @@ pip install -r requirements.txt
 python3 manage.py runserver
 
 deactivate
+
+
+
+Дополнительно
+Полезное дополнение для шаблонов "Django"
+'''
+ext install batisteo.vscode-django
+'''
+
+добавить в 'settings.json'
+'''
+"emmet.includeLanguages": {
+    "django-html": "html",
+}
+"files.associations": {
+    "*.html": "django-html"
+}
+'''
