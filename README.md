@@ -55,20 +55,37 @@ https://docs.djangoproject.com/en/5.1/ref/models/fields
 Делаем записи в БД
 python manage.py shell_plus --ipython
 
-# Создание объекта
+## Создание объекта
 item = Item(name="Кроссовки", brand="abibas", count=10)
 item.save()
 
-# Получение объектов
+## Получение объектов
 items = Item.objects.all()
 items = Item.objects.get(id=1)
 
-## Выгрузка и загрузка данных из БД
-### Выгрузить
-python manage.py dumpdata MainApp --indent 4 > ./fixtures/items.json
 
-### Загрузить
+# Связанные объекты
+## Добавить связь
+item1 = Item.objects.get(id=1)
+item1.colors.add(color1)
+## Получить 
+item1 = Item.objects.get(id=1)
+item1.colors.all()
+items = Item.objects.filter(colors__name='green')
+
+
+# Выгрузка и загрузка данных из БД
+## Выгрузить все модели
+python manage.py dumpdata MainApp --indent 4 > ./fixtures/items.json
+python manage.py dumpdata MainApp --indent 4 > ./fixtures/items_wcolors.json
+
+## Выгрузить определенные модели
+python manage.py dumpdata MainApp.item --indent 4 > ./fixtures/only_items.json
+python manage.py dumpdata MainApp.color --indent 4 > ./fixtures/only_colors.json
+
+## Загрузить
 python manage.py loaddata ./fixtures/items.json
+
 
 # очистка бд
 python manage.py flush
