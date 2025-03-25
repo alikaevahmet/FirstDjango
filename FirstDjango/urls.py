@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from MainApp import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 """
 urlpatterns = [
@@ -28,8 +30,8 @@ urlpatterns = [
 ]
 """
 urlpatterns = [
-    path('', views.home),
-    path('about/', views.about),
-    path('item/<int:itemId>', views.getItem),
-    path('items/', views.getItems),
-]
+    path('', views.home, name='home'),
+    path('about/', views.about, name='about'),
+    path('item/<int:itemId>', views.getItem, name='item-detals'),
+    path('items/', views.getItems, name='items-list'),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

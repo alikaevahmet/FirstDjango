@@ -1,4 +1,21 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Home page
+{% endblock %}
+
+{% block content %}
+    {{ block.super }}
+    <img width="50px", src="{% static "images/logo_django.png" %}">
+    <h1>Приветствую!</h1>
+    Меня зовут <i>{{name}}</i><br>
+    мой email <i>{{email}}</i><br>
+    Это главная страница сайта
+    <i>Сайт сейчас в разработке</i>
+{% endblock %}
+
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +24,7 @@
 </head>
 <body>
     <header>
-        / <a href="/">Home</a> / <a href="/items">Items</a> / <a href="/about">About</a>
+        / <a href="{% url "home" %}">Home</a> / <a href="/items">Items</a> / <a href="/about">About</a>
     </header>
     <h1>Приветствую!</h1>
     Меня зовут <i>{{name}}</i><br>
@@ -15,4 +32,4 @@
     Это главная страница сайта
     <i>Сайт сейчас в разработке</i>
 </body>
-</html>
+</html> {% endcomment %}

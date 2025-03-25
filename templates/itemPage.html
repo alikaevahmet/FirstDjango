@@ -1,4 +1,21 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Item page
+{% endblock %}
+{% block content %}
+    <h2>Имя: {{item.name}} {{item.brand}}</h2>
+    <div>
+        Количество: {{item.count | default:" Товар отсутствует"}}
+    </div>
+    <div>
+        Описание: {{item.description}}
+    </div>
+    <br><br>
+    <p><a href="{% url "items-list" %}">Назад к списку товаров</a></p>
+{% endblock %}
+
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,4 +36,7 @@
     <br><br>
     <p><a href="/items">Назад к списку товаров</a></p>
 </body>
-</html>
+</html> {% endcomment %}
+
+
+

@@ -1,4 +1,16 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    {{ block.super }}
+    Имя: <b>{{author.name}}</b></br>
+    Отчество: <b>{{author.middleName}}</b></br>
+    Фамилия: <b>{{author.lastName}}</b></br>
+    телефон: <b>{{author.phone}}</b></br>
+    email: <b>{{author.email}}</b></br>
+{% endblock %}
+
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,5 +27,5 @@
     телефон: <b>{{author.phone}}</b></br>
     email: <b>{{author.email}}</b></br>
 </body>
-</html>
+</html> {% endcomment %}
 
