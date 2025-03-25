@@ -1,20 +1,43 @@
 [
 {
+    "model": "MainApp.color",
+    "pk": 1,
+    "fields": {
+        "name": "red"
+    }
+},
+{
+    "model": "MainApp.color",
+    "pk": 2,
+    "fields": {
+        "name": "green"
+    }
+},
+{
     "model": "MainApp.item",
     "pk": 1,
     "fields": {
         "name": "Кроссовки",
         "brand": "abibas",
-        "count": 10
+        "count": 10,
+        "description": "Описание",
+        "colors": [
+            1,
+            2
+        ]
     }
 },
 {
     "model": "MainApp.item",
     "pk": 2,
     "fields": {
-        "name": "Кроссовки",
+        "name": "Кеды",
         "brand": "Neki",
-        "count": 7
+        "count": 7,
+        "description": "Описание",
+        "colors": [
+            1
+        ]
     }
 },
 {
@@ -23,7 +46,9 @@
     "fields": {
         "name": "Куртка",
         "brand": "Neki",
-        "count": 15
+        "count": 15,
+        "description": "Описание",
+        "colors": []
     }
 },
 {
@@ -32,16 +57,20 @@
     "fields": {
         "name": "Кепка",
         "brand": "abibas",
-        "count": 3
+        "count": 3,
+        "description": "Описание",
+        "colors": []
     }
 },
 {
     "model": "MainApp.item",
     "pk": 5,
     "fields": {
-        "name": "Куртка",
+        "name": "Шапка",
         "brand": "pumba",
-        "count": 5
+        "count": 5,
+        "description": "Описание",
+        "colors": []
     }
 }
 ]

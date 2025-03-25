@@ -30,7 +30,7 @@ ITEMS = [
 
 def getItem(request, itemId: int):
     try:
-        item = Item.objects.get(id=itemId)  
+        item = Item.objects.get(id=itemId)
     except ObjectDoesNotExist:
         return HttpResponseNotFound(f'Item with id={itemId} not found')
     else:
