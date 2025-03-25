@@ -8,6 +8,10 @@ source django_venv/bin/activate
 
 pip install -r requirements.txt
 
+создание миграции
+python3 manage.py makemigrations
+
+применение миграции
 python3 manage.py migrate
 
 python3 manage.py runserver
@@ -37,3 +41,30 @@ ext install batisteo.vscode-django
     "*.html": "django-html"
 }
 '''
+
+# Модели
+Поля
+https://docs.djangoproject.com/en/5.1/ref/models/fields
+
+
+# DB
+Делаем записи в БД
+python manage.py shell_plus --ipython
+
+# Создание объекта
+item = Item(name="Кроссовки", brand="abibas", count=10)
+item.save()
+
+# Получение объектов
+items = Item.objects.all()
+items = Item.objects.get(id=1)
+
+## Выгрузка и загрузка данных из БД
+### Выгрузить
+python manage.py dumpdata MainApp --indent 4 > ./fixtures/items.json
+
+### Загрузить
+python manage.py loaddata ./fixtures/items.json
+
+# очистка бд
+python manage.py flush
