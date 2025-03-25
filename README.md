@@ -86,6 +86,8 @@ python manage.py dumpdata MainApp.color --indent 4 > ./fixtures/only_colors.json
 ## Загрузить
 python manage.py loaddata ./fixtures/items.json
 
-
 # очистка бд
 python manage.py flush
+
+# Проверка существования цвета
+item.colors.exists()
