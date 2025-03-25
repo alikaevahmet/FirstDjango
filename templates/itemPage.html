@@ -10,7 +10,13 @@
         / <a href="/">Home</a> / <a href="/items">Items</a> / <a href="/about">About</a>
     </header>
     <h2>Имя: {{item.name}} {{item.brand}}</h2>
-    Количество: {{item.count | default:" Товар отсутствует"}}
+    <div>
+        Количество: {{item.count | default:" Товар отсутствует"}}
+    </dev>
+    <div>
+        Описание: {{item.description}}
+    </dev>
+    <br><br>
     <p><a href="/items">Назад к списку товаров</a></p>
 </body>
 </html>

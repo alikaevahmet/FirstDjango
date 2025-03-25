@@ -20,6 +20,10 @@ deactivate
 
 ### Запуск antares.AppImage
 ./Antares-0.7.34-linux_x86_64.AppImage --no-sandbox
+либо удалить `AppArmor`:
+    sudo systemctl disable --now apparmor 
+    sudo apt remove --assume-yes --purge apparmor 
+    restart OS
 
 
 # Запуск 'ipython' в контексте приложения django
